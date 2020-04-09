@@ -1,0 +1,168 @@
+body{
+  font-family: 'Roboto', sans-serif;
+}
+.my-icon img{
+    width:20px;
+    height: 20px;
+    margin-right: 5px;
+}
+.navbar{
+  display: none;
+}
+.row{
+margin-top: 5%;
+
+}
+.img-fluid{
+
+}
+h2{
+  font-size: 50px;
+}
+.image{
+
+}
+.col-sm{
+  padding: 0px;
+  margin-left: 3%;
+}
+.my-cont-1{
+  margin-top: 5%;
+
+
+}
+.container{
+  padding:0px;
+
+}
+.my-col-1{
+padding-top: 10%;
+
+}
+.list-group .list-group-item{
+  border:none;
+  padding: 10px 0px;
+}
+.list-group .list-group-item a{
+  text-decoration: none;
+  color: black;
+  font-size: 1.2em;
+}
+.list-group{
+  padding-left:-30px;
+}
+.icons, .icons-2{
+  display: inline-block;
+  padding-top: 1%;
+  font-size: 30px;
+
+}
+.icons a{
+  text-decoration: none;
+  color: black;
+}
+form{
+  width: 70%;
+
+}
+.footer-copyright{
+  margin-top: 10%;
+  background-color: #7a7a7a;
+  width: 100%;
+}
+
+.card{
+  width: 18em;
+
+}
+@media (max-width: 991.98px) {
+  .row{
+    width: 100%;
+  }
+.col{
+  width: 50%;
+
+}
+.my-col-1{
+  padding-top: 0px;
+}
+h2{
+  font-size:35px;
+}
+.card{
+  width: 20em;
+}
+.card3{
+  margin-top:3%;
+}
+ }
+ @media (max-width: 767.98px) {
+   .navbar{
+     display: flex;
+
+   }
+   .row{
+     max-width: 100%;
+   }
+   .col{
+     width: 100%;
+     float: none;
+      }
+      .list-group {
+        display: none;
+      }
+      .icons{
+        display: none;
+      }
+      .icons-2 a{
+        text-decoration: none;
+        color: black;
+      }
+      .col-sm{
+        margin-left: 15%;
+        padding-top: 3%;
+
+      }
+      .card{
+        width: 20em;
+
+      }
+      .card3{
+        margin-top:0;
+      }
+      .my-col-1{
+        order:1;
+      }
+      .image{
+        order:2;
+      }
+  }
+@media (max-width: 575.98px) {
+  .container{
+    padding: 5%;
+    padding-left: 10%;
+    width: 100%;
+
+  }
+  .col-sm{
+    margin-left: 3%;
+    padding-top: 3%;
+    width: 100%;
+  }
+  .row{
+    width: 100%;
+  }
+  .card{
+    width: 100%;
+    margin-left: 0;
+  }
+  .my-col-1{
+    order:1;
+  }
+  .image{
+    order:2;
+  }
+  .card3{
+    margin-top:0;
+  }
+}
