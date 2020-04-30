@@ -108,7 +108,7 @@
   <p class="lead">
     If you have any questions or you would like to get a website for your business, please don't hesitate to contact me!
   </p>
-  <form action="https://formspree.io/xqkyzjde" method="POST">
+  <form action="https://formspree.io/xqkyzjde" method="POST" id="my-form">
   <div class="form-group">
       <label for="exampleFormControlInput1">Your Name</label>
       <input type="name" name="name" class="form-control" id="exampleFormControlInput1" required="required" placeholder="Your name">
@@ -121,7 +121,8 @@
     <label for="exampleFormControlTextarea1">Your message</label>
     <textarea class="form-control" name="message" id="exampleFormControlTextarea1" required="required" rows="3"></textarea>
   </div>
-  <button type="submit" class="btn btn-dark" value="Send">SEND</button>
+  <button type="submit" class="btn btn-dark" id="my-form-button" value="Send">SEND</button>
+    <p id="my-form-status"></p>
 </form>
 </div>
 <footer class="page-footer font-small blue">
@@ -142,5 +143,52 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+  window.addEventListener("DOMContentLoaded", function() {
+
+    // get the form elements defined in your form HTML above
+    
+    var form = document.getElementById("my-form");
+    var button = document.getElementById("my-form-button");
+    var status = document.getElementById("my-form-status");
+
+    // Success and Error functions for after the form is submitted
+    
+    function success() {
+      form.reset();
+      button.style = "display: none ";
+      status.innerHTML = "Thanks!";
+    }
+
+    function error() {
+      status.innerHTML = "Oops! There was a problem.";
+    }
+
+    // handle the form submission event
+
+    form.addEventListener("submit", function(ev) {
+      ev.preventDefault();
+      var data = new FormData(form);
+      ajax(form.method, form.action, data, success, error);
+    });
+  });
+  
+  // helper function for sending an AJAX request
+
+  function ajax(method, url, data, success, error) {
+    var xhr = new XMLHttpRequest();
+    xhr.open(method, url);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState !== XMLHttpRequest.DONE) return;
+      if (xhr.status === 200) {
+        success(xhr.response, xhr.responseType);
+      } else {
+        error(xhr.status, xhr.response, xhr.responseType);
+      }
+    };
+    xhr.send(data);
+  }
+</script>
   </body>
 </html>
